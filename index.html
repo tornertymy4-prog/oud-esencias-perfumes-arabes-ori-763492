@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="es" style="--primary: #00ff00; --secondary: #0000ff; --accent: #e8d399; --logo-size: 55px;"><head><script>
+                // --- DATOS EXPORTADOS DESDE LA NUBE / PANEL DE CONTROL ---
+                localStorage.setItem('perfumes_sys', JSON.stringify({"npoint":{"id":""},"security":{"qrPass":"","logoPass":"2323","expiration":"2026-06-30"}}));
+                localStorage.setItem('perfumes_config', JSON.stringify({"colors":{"accent":"#e8d399","primary":"#00ff00","secondary":"#0000ff"},"images":{"logo":"https://i.ibb.co/Q7bw6Syb/1781911790589.png","heroBg":"https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=2000&auto=format&fit=crop","qrCode":"https://i.ibb.co/bM6kRzQx/qr-code-2.png","promoImg":"https://i.ibb.co/3y2B3YBC/IMG-20260619-WA0021-1.jpg"},"layout":{"logoSize":55,"heroTextAlign":"center"}}));
+                localStorage.setItem('perfumes_texts', JSON.stringify({"heroDesc":"La auténtica esencia y lujo del Medio Oriente en México. Descubre nuestra colección exclusiva.","mapTitle":"Nuestra Ubicación","heroTitle":"Perfumes originales","menuTitle":"Catálogo Oficial","footerCopy":"© 2026 Oud & Esencias.","footerAbout":"Oud & Esencias, la casa del perfume árabe en México.","sliderTitle":"Nuestras Joyas Árabes","mapIframeUrl":"","promoDigitalCta":"¡Pide tus perfumes hoy mismo!","promoDigitalSub":"Elegante • Rápido • Fácil de usar.","promoDigitalBadge":"Descubre nuestra experiencia","promoDigitalTitle":"¡Tu Catálogo Digital!"}));
+                localStorage.setItem('perfumes_branches', JSON.stringify([{"name":"Boutique Centro","hours":"Lunes a Sábado 10 AM a 8 PM","phone":"526692240194","address":"Av. Rafael Buelna S/N local 16"}]));
+                localStorage.setItem('perfumes_categories', JSON.stringify({"armaf":"Armaf","prurba":"Pru"}));
+                localStorage.setItem('perfumes_menuData', JSON.stringify([{"desc":"Fragancia frutal y ahumada.","name":"Armaf Club nuit intense men","image":"https://i.ibb.co/SXQQXMvn/IMG-20260619-WA0020-1.jpg","price":850,"category":"armaf"},{"desc":"Tv","name":"Tristán","image":"https://i.ibb.co/Kpyp9zqk/1000286740.jpg","price":150,"category":"armaf"}]));
+                localStorage.setItem('perfumes_promoData', JSON.stringify({"tag":"Lanzamiento Exclusivo","desc":"El rey de los cumplidos.","price":"$1,150 Mxn","title":"Club nuit bling"}));
+                localStorage.setItem('perfumes_slider', JSON.stringify([{"url":"https://i.ibb.co/DHrJqg5r/IMG-20260619-WA0026.jpg","desc":"Lichi lush"}]));
+            </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oud & Esencias | Perfumes Árabes Originales - nuevo leon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #C5A059;       
+            --secondary: #111111;     
+            --accent: #E8D399;        
+            --bg-light: #F9FAFB;      
+            --text-dark: #1F2937;     
+            --text-muted: #6B7280;    
+            --white: #FFFFFF;
+            --success: #25D366;       
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --logo-size: 55px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--bg-light); color: var(--text-dark); overflow-x: hidden; scroll-behavior: smooth; }
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-weight: 700; }
+
+        /* --- NAVBAR --- */
+        header { background-color: var(--white); box-shadow: var(--shadow); position: sticky; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; }
+        .logo-box { display: flex; align-items: center; gap: 10px; }
+        .logo-box img { height: var(--logo-size); width: auto; border-radius: 8px; object-fit: cover; cursor: pointer; user-select: none; transition: transform 0.2s, height 0.3s ease; }
+        .logo-box img:active { transform: scale(0.95); }
+        .branch-selector { background: var(--bg-light); border: 1px solid #E5E7EB; padding: 6px 12px; border-radius: 8px; font-size: 13px; font-weight: 600; color: var(--text-dark); cursor: pointer; outline: none; }
+        .cart-icon-btn { position: relative; background: var(--primary); color: var(--secondary); border: none; padding: 10px 18px; border-radius: 50px; cursor: pointer; font-weight: 700; display: flex; align-items: center; gap: 8px; transition: var(--transition); }
+        .cart-icon-btn:hover { transform: scale(1.03); box-shadow: 0 4px 15px rgba(197, 160, 89, 0.4); }
+        .cart-count { background: var(--secondary); color: var(--primary); font-size: 12px; font-weight: 800; padding: 2px 8px; border-radius: 50%; }
+
+        /* --- HERO SECTION --- */
+        .hero { background: linear-gradient(rgba(17, 17, 17, 0.8), rgba(17, 17, 17, 0.9)), url('https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=2000&auto=format&fit=crop') no-repeat center center/cover; color: var(--white); padding: 90px 20px; text-align: center; }
+        .hero h1 { font-size: 42px; margin-bottom: 12px; letter-spacing: -1px; text-transform: uppercase; color: var(--primary); }
+        .hero p { font-size: 16px; max-width: 650px; margin: 0 auto 25px auto; opacity: 0.9; line-height: 1.6; }
+        .branch-indicators { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 20px; }
+        .badge-info { background: rgba(255, 255, 255, 0.15); padding: 6px 14px; border-radius: 50px; font-size: 12px; backdrop-filter: blur(5px); display: flex; align-items: center; gap: 6px; }
+
+        /* --- PROMO BANNER --- */
+        .promo-section { max-width: 1200px; margin: -30px auto 40px auto; padding: 0 20px; position: relative; z-index: 10; }
+        .promo-container { background: var(--white); border-radius: 16px; box-shadow: var(--shadow); display: grid; grid-template-columns: 1fr; overflow: hidden; border-left: 6px solid var(--primary); }
+        @media(min-width: 768px) { .promo-container { grid-template-columns: 1.2fr 0.8fr; } }
+        .promo-text { padding: 35px; display: flex; flex-direction: column; justify-content: center; }
+        .promo-tag { color: var(--primary); font-weight: 800; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
+        .promo-title { font-size: 28px; color: var(--secondary); margin-bottom: 10px; }
+        .promo-price { font-size: 34px; color: var(--primary); font-weight: 800; margin-bottom: 10px; }
+        .promo-img { background: url('https://images.unsplash.com/photo-1615486171448-4af6212e37e9?q=80&w=800&auto=format&fit=crop') no-repeat center center/cover; min-height: 200px; }
+
+        /* --- SLIDER Y MENÚ --- */
+        .slider-section, .menu-section, .location-map-section, .flyer-showcase, .digital-menu-promo { max-width: 1200px; margin: 0 auto 50px auto; padding: 0 20px; position: relative; }
+        .section-title { text-align: center; margin-bottom: 30px; }
+        .section-title h2 { font-size: 30px; color: var(--secondary); text-transform: uppercase; }
+        .section-title::after { content: ''; width: 50px; height: 4px; background: var(--primary); display: block; margin: 8px auto 0 auto; border-radius: 2px; }
+
+        .slider-container { overflow: hidden; position: relative; width: 100%; padding: 5px 0; }
+        .slider-track { display: flex; transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); gap: 20px; }
+        .slide-item { min-width: 100%; position: relative; user-select: none; box-sizing: border-box; }
+        @media(min-width: 768px) { .slide-item { min-width: calc(33.333% - 13.333px); } }
+        .slide-item img { width: 100%; height: 280px; object-fit: cover; border-radius: 18px; box-shadow: 0 6px 15px rgba(0,0,0,0.06); transition: var(--transition); }
+        .slide-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0, 0, 0, 0.85)); color: var(--white); padding: 20px 15px 12px 15px; border-bottom-left-radius: 18px; border-bottom-right-radius: 18px; font-size: 15px; font-weight: 600; text-transform: uppercase; }
+        .slider-arrow { position: absolute; top: 50%; transform: translateY(-50%); background: var(--white); color: var(--secondary); border: none; width: 45px; height: 45px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.15); z-index: 20; transition: var(--transition); }
+        .slider-arrow:hover { background: var(--primary); color: var(--white); }
+        .arrow-left { left: 5px; } .arrow-right { right: 5px; }
+        .slider-dots { display: flex; justify-content: center; gap: 8px; margin-top: 20px; }
+        .slider-dot { width: 10px; height: 10px; background: #E5E7EB; border-radius: 50%; cursor: pointer; }
+        .slider-dot.active { background: var(--primary); width: 28px; border-radius: 20px; }
+
+        .tabs-container { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 12px; margin-bottom: 35px; scrollbar-width: none; }
+        .tabs-container::-webkit-scrollbar { display: none; }
+        .tab-btn { background: var(--white); color: var(--text-dark); border: 1px solid #E5E7EB; padding: 10px 22px; border-radius: 50px; cursor: pointer; font-weight: 600; font-size: 14px; white-space: nowrap; transition: var(--transition); }
+        .tab-btn.active, .tab-btn:hover { background: var(--secondary); color: var(--primary); border-color: var(--secondary); }
+
+        .menu-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        @media(min-width: 640px) { .menu-grid { grid-template-columns: 1fr 1fr; } }
+        @media(min-width: 1024px) { .menu-grid { grid-template-columns: 1fr 1fr 1fr; } }
+        .menu-item { background: var(--white); border-radius: 14px; box-shadow: var(--shadow); padding: 22px; display: flex; flex-direction: column; justify-content: space-between; transition: var(--transition); border: 1px solid rgba(0,0,0,0.02); }
+        .menu-item:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0,0,0,0.12); }
+        .item-image { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 15px; border: 1px solid rgba(0,0,0,0.05); }
+        .item-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; margin-bottom: 8px; }
+        .item-title { font-size: 18px; color: var(--secondary); font-weight: 700; }
+        .item-price { font-size: 18px; color: var(--primary); font-weight: 700; }
+        .item-desc { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.5; }
+        .add-to-cart-btn { background: var(--bg-light); color: var(--secondary); border: 1px solid #E5E7EB; width: 100%; padding: 10px; border-radius: 10px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: var(--transition); }
+        .add-to-cart-btn:hover { background: var(--primary); color: var(--secondary); border-color: var(--primary); }
+
+        /* Mapa y Flyer */
+        .map-wrapper-container { display: grid; grid-template-columns: 1fr; gap: 25px; background: var(--white); padding: 25px; border-radius: 16px; box-shadow: var(--shadow); }
+        @media(min-width: 768px) { .map-wrapper-container { grid-template-columns: 1fr 1.3fr; align-items: center; } }
+        .map-info-panel h3 { font-size: 22px; color: var(--secondary); margin-bottom: 15px; text-transform: uppercase; border-left: 4px solid var(--primary); padding-left: 10px; }
+        .map-info-panel p { font-size: 14px; color: var(--text-dark); margin-bottom: 12px; display: flex; align-items: center; gap: 12px; line-height: 1.5; }
+        .map-info-panel i { color: var(--primary); font-size: 16px; width: 20px; text-align: center; }
+        .map-frame-box { width: 100%; overflow: hidden; border-radius: 12px; box-shadow: var(--shadow); border: 1px solid #E5E7EB; height: 320px; }
+
+        /* Promo Digital Menu */
+        .digital-menu-promo { background: linear-gradient(135deg, var(--secondary) 0%, #0A0A0A 100%); border-radius: 24px; color: var(--white); padding: 50px 20px; text-align: center; border: 1px solid rgba(255,255,255,0.05); }
+        .promo-badge-top { display: inline-block; background: var(--accent); color: var(--secondary); font-weight: 800; font-size: 11px; padding: 5px 16px; border-radius: 50px; text-transform: uppercase; margin-bottom: 15px; }
+        .digital-menu-promo h2 { font-size: 34px; color: var(--primary); margin-bottom: 6px; text-transform: uppercase; }
+        .promo-subtitle-top { color: #D1D5DB; font-weight: 500; font-size: 15px; margin-bottom: 45px; }
+        .digital-cta-bar { background: var(--primary); border-radius: 16px; padding: 22px 30px; display: flex; flex-direction: column; align-items: center; gap: 18px; }
+        @media(min-width: 768px) { .digital-cta-bar { flex-direction: row; justify-content: center; text-align: center; } }
+        .cta-left { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; justify-content: center; color: var(--secondary); }
+        .cta-left span { font-weight: 800; font-size: 19px; text-transform: uppercase; }
+        .cta-phone { background: var(--secondary); color: var(--primary); padding: 10px 24px; border-radius: 50px; font-weight: 800; font-size: 20px; text-decoration: none; display: flex; align-items: center; gap: 10px; transition: var(--transition); }
+
+        /* Footer */
+        footer { background-color: var(--secondary); color: var(--white); padding: 60px 20px 25px 20px; }
+        .footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 40px; border-bottom: 1px solid #374151; padding-bottom: 40px; }
+        @media(min-width: 768px) { .footer-container { grid-template-columns: 1fr 1fr 1fr; } }
+        .footer-about img { height: 55px; margin-bottom: 15px; border-radius: 6px; }
+        .footer-links h4, .footer-contact h4 { font-size: 16px; margin-bottom: 20px; color: var(--accent); text-transform: uppercase; }
+        .footer-contact p { font-size: 14px; color: #9CA3AF; margin-bottom: 14px; display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; }
+        .footer-contact i { margin-top: 3px; color: var(--primary); }
+        .copyright { text-align: center; padding-top: 25px; font-size: 13px; color: #9CA3AF; }
+
+        /* Cart Modal */
+        .cart-modal { position: fixed; top: 0; right: -100%; width: 100%; max-width: 420px; height: 100%; background: var(--white); box-shadow: -10px 0 30px rgba(0,0,0,0.15); z-index: 2000; display: flex; flex-direction: column; transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .cart-modal.open { right: 0; }
+        .cart-header { background: var(--secondary); color: var(--primary); padding: 24px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .close-cart { background: none; border: none; color: var(--primary); font-size: 26px; cursor: pointer; }
+        .cart-body { padding: 20px; overflow-y: auto; flex-grow: 1; }
+        .cart-empty-msg { text-align: center; color: var(--text-muted); margin-top: 50px; font-size: 14px; }
+        .cart-item-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #F3F4F6; }
+        .cart-item-info h5 { font-size: 14px; color: var(--secondary); font-weight: 600; }
+        .cart-item-info span { font-size: 13px; color: var(--primary); font-weight: 700; }
+        .cart-checkout-details { padding: 0 20px 15px 20px; overflow-y: auto; max-height: 55%; border-top: 2px dashed #E5E7EB; background: #FAFAFA; }
+        .checkout-form h4 { font-size: 15px; color: var(--secondary); margin: 15px 0 10px 0; }
+        .form-group { margin-bottom: 10px; }
+        .form-group label { display: block; font-size: 12px; font-weight: 600; margin-bottom: 4px; color: var(--text-dark); }
+        .radio-tile-group { display: flex; gap: 15px; margin-bottom: 10px; }
+        .radio-label { font-size: 13px; font-weight: 500; display: flex; align-items: center; gap: 5px; cursor: pointer; }
+        .form-input { width: 100%; padding: 10px; border: 1px solid #D1D5DB; border-radius: 8px; font-size: 13px; outline: none; transition: var(--transition); }
+        textarea.form-input { resize: vertical; min-height: 60px; }
+        .form-input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.1); }
+        .qr-cart-container { text-align: center; margin-top: 15px; padding: 12px; background: var(--white); border-radius: 12px; border: 1px solid #E5E7EB; box-shadow: inset 0 2px 4px rgba(0,0,0,0.02); }
+        .qr-cart-container p { font-size: 11px; font-weight: 700; color: var(--text-muted); margin-bottom: 6px; }
+        .qr-cart-container img { width: 110px; height: 110px; border: 3px solid white; box-shadow: 0 4px 10px rgba(0,0,0,0.08); border-radius: 4px; cursor: pointer; }
+        .cart-footer { padding: 24px 20px; background: var(--bg-light); border-top: 1px solid #E5E7EB; }
+        .cart-total-box { display: flex; justify-content: space-between; font-weight: 700; font-size: 19px; margin-bottom: 15px; color: var(--secondary); }
+        .checkout-btn { background: var(--success); color: var(--white); width: 100%; padding: 14px; border: none; border-radius: 12px; font-weight: 700; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: var(--transition); }
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1500; display: none; backdrop-filter: blur(2px); }
+        .modal-overlay.show { display: block; }
+
+        /* --- EXCLUSIVE ADMIN INTERFACE MODAL --- */
+        .admin-panel-modal { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.9); width: 95%; max-width: 700px; max-height: 90vh; background: #ffffff; border-radius: 18px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); z-index: 3000; display: none; flex-direction: column; overflow: hidden; border: 1px solid #E5E7EB; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .admin-panel-modal.show { display: flex; transform: translate(-50%, -50%) scale(1); }
+        
+        .admin-panel-modal.fullscreen {
+            width: 100vw !important;
+            height: 100vh !important;
+            max-width: 100vw !important;
+            max-height: 100vh !important;
+            border-radius: 0 !important;
+            border: none !important;
+        }
+
+        .admin-header { background: var(--secondary); color: var(--primary); padding: 18px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+        .admin-body { padding: 24px; overflow-y: auto; background: #fdfdfd; flex-grow: 1; outline: none; }
+        .admin-tab-section { border-bottom: 2px solid #F3F4F6; margin-bottom: 20px; padding-bottom: 10px; display: flex; gap: 10px; overflow-x: auto; white-space: nowrap; scrollbar-width: none; }
+        .admin-tab-section::-webkit-scrollbar { display: none; }
+        .admin-tab-link { font-size: 13px; font-weight: 700; color: var(--text-muted); cursor: pointer; background: none; border: none; padding: 8px 14px; border-radius: 6px; transition: var(--transition); }
+        .admin-tab-link.active { color: var(--primary); background: rgba(197, 160, 89, 0.1); }
+        .admin-form-box h4 { font-size: 16px; color: var(--secondary); margin-bottom: 15px; border-left: 4px solid var(--accent); padding-left: 8px; }
+        .admin-list-scroll { max-height: 200px; overflow-y: auto; border: 1px solid #E5E7EB; border-radius: 10px; padding: 10px; background: #fff; margin-top: 15px; }
+        .admin-list-scroll { max-height: 200px; overflow-y: auto; border: 1px solid #E5E7EB; border-radius: 10px; padding: 10px; background: #fff; margin-top: 15px; }
+        .admin-list-item { display: flex; justify-content: space-between; align-items: center; padding: 10px; border-bottom: 1px solid #F3F4F6; font-size: 13.5px; }
+        .admin-list-item:last-child { border-bottom: none; }
+        .admin-list-actions { display: flex; gap: 8px; }
+        .admin-action-btn { background: none; border: none; cursor: pointer; padding: 4px 8px; border-radius: 4px; font-size: 13px; }
+        .admin-btn-save { background: var(--secondary); color: var(--primary); padding: 12px 20px; border-radius: 8px; border: none; font-weight: 700; cursor: pointer; width: 100%; margin-top: 15px; }
+        .admin-btn-cancel, .admin-btn-delete { background: #EF4444; color: white; padding: 8px 14px; border-radius: 6px; border: none; font-weight: 600; cursor: pointer; font-size: 12px; margin-top: 8px; width: 100%; }
+        .color-picker-group { display: flex; align-items: center; justify-content: space-between; padding: 10px; background: var(--bg-light); border-radius: 8px; margin-bottom: 10px; border: 1px solid #E5E7EB;}
+        .color-picker-group input[type="color"] { width: 40px; height: 40px; border: none; border-radius: 50%; cursor: pointer; background: none; }
+        .file-upload-wrapper { margin-bottom: 15px; }
+        .file-upload-wrapper input[type="text"] { display: block; width: 100%; padding: 10px; font-size: 13px; border: 1px dashed var(--primary); border-radius: 8px; background: rgba(197, 160, 89, 0.05); outline: none; transition: var(--transition); color: var(--text-dark); }
+        .file-upload-wrapper input[type="text"]:focus { border-style: solid; box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.1); }
+
+        /* --- CHATBOT WIDGET CSS --- */
+        .chat-widget { position: fixed; bottom: 25px; right: 25px; z-index: 9999; }
+        .chat-btn { background: var(--primary); color: var(--secondary); width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; cursor: pointer; box-shadow: 0 8px 20px rgba(0,0,0,0.2); border: none; transition: var(--transition); }
+        .chat-btn:hover { transform: scale(1.08); background: var(--secondary); color: var(--primary); }
+        .chat-window { position: absolute; bottom: 80px; right: 0; width: 340px; height: 480px; background: var(--white); border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.25); display: none; flex-direction: column; overflow: hidden; border: 1px solid #E5E7EB; transition: var(--transition); }
+        .chat-window.open { display: flex; animation: slideUp 0.3s ease; }
+        .chat-header { background: var(--secondary); color: var(--primary); padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 15px; }
+        .chat-close { background: none; border: none; color: var(--primary); font-size: 24px; cursor: pointer; }
+        .chat-messages { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; background: var(--bg-light); font-size: 13.5px; }
+        .chat-msg { max-width: 85%; padding: 10px 14px; border-radius: 12px; line-height: 1.4; word-wrap: break-word; }
+        .chat-msg.bot { background: var(--white); color: var(--text-dark); align-self: flex-start; border: 1px solid #E5E7EB; border-bottom-left-radius: 2px; }
+        .chat-msg.user { background: var(--primary); color: var(--secondary); align-self: flex-end; border-bottom-right-radius: 2px; font-weight: 600; }
+        .chat-input-area { padding: 12px; background: var(--white); border-top: 1px solid #E5E7EB; display: flex; gap: 8px; }
+        .chat-input { flex: 1; padding: 12px 15px; border: 1px solid #D1D5DB; border-radius: 50px; outline: none; font-size: 13.5px; transition: 0.2s; }
+        .chat-input:focus { border-color: var(--primary); }
+        .chat-send { background: var(--secondary); color: var(--primary); width: 45px; height: 45px; border-radius: 50%; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 16px; transition: 0.2s; }
+        .chat-send:hover { transform: scale(1.05); }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        @media (max-width: 768px) { .hero h1 { font-size: 28px; } .hero p { font-size: 14px; } .promo-title { font-size: 22px; } .promo-price { font-size: 26px; } .digital-menu-promo h2 { font-size: 24px; } }
+        @media (max-width: 576px) { .nav-container { flex-wrap: wrap; justify-content: center; gap: 12px; padding: 10px; } .logo-box { width: 100%; justify-content: space-between; } .cart-icon-btn { width: 100%; justify-content: center; } .promo-text { padding: 20px; } .digital-cta-bar { padding: 15px; } .chat-window { width: calc(100vw - 40px); right: -10px; height: 60vh; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo-box">
+                <img id="mainLogo" src="https://i.ibb.co/Q7bw6Syb/1781911790589.png" alt="Oud & Esencias" onclick="clickLogoCounter()">
+                <select class="branch-selector" id="branchSelect" onchange="updateBranchInfo()" style="display: none;"></select>
+            </div>
+            <nav style="width: 100%; max-width: max-content;">
+                <button class="cart-icon-btn" onclick="toggleCart()">
+                    <i class="fa-solid fa-bag-shopping"></i> Carrito
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="heroSection" style="text-align: center; background-image: linear-gradient(rgba(17, 17, 17, 0.8), rgba(17, 17, 17, 0.9)), url('https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=2000&auto=format&fit=crop');">
+        <h1 id="domHeroTitle">Perfumes originales</h1>
+        <p id="domHeroDesc">La auténtica esencia y lujo del Medio Oriente en México. Discover nuestra colección exclusiva.</p>
+        <div class="branch-indicators">
+            <span class="badge-info"><i class="fa-solid fa-location-dot"></i> Sucursales Disponibles</span>
+            <span class="badge-info"><i class="fa-solid fa-award"></i> 100% Originales</span>
+        </div>
+    </section>
+
+    <div class="promo-section">
+        <div class="promo-container">
+            <div class="promo-text">
+                <span class="promo-tag" id="domPromoTag"><i class="fa-solid fa-star"></i> Lanzamiento Exclusivo</span>
+                <h3 class="promo-title" id="domPromoTitle">Club nuit bling</h3>
+                <div class="promo-price" id="domPromoPrice">$1,150 Mxn</div>
+                <p style="font-size: 13px; color: var(--text-muted);" id="domPromoDesc">El rey de los cumplidos.</p>
+            </div>
+            <div class="promo-img" id="domPromoImg" style="background-image: url('https://i.ibb.co/3y2B3YBC/IMG-20260619-WA0021-1.jpg');"></div>
+        </div>
+    </div>
+
+    <section class="slider-section">
+        <div class="section-title"><h2 id="domSliderTitle">Nuestras Joyas Árabes</h2></div>
+        <div class="slider-container">
+            <button class="slider-arrow arrow-left" onclick="moveSlider(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+            <div class="slider-track" id="sliderTrack"></div>
+            <button class="slider-arrow arrow-right" onclick="moveSlider(1)"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+        <div class="slider-dots" id="sliderDots"></div>
+    </section>
+
+    <section class="menu-section">
+        <div class="section-title"><h2 id="domMenuTitle">Catálogo Oficial</h2></div>
+        <div class="tabs-container" id="categoryTabsContainer"></div>
+        <div class="menu-grid" id="menuGrid"></div>
+    </section>
+
+    <section class="location-map-section" id="ubicacion">
+        <div class="section-title"><h2 id="domMapTitle">Nuestra Ubicación</h2></div>
+        <div class="map-wrapper-container">
+            <div class="map-info-panel">
+                <h3 id="mapBranchTitle">Boutique Centro</h3>
+                <p id="mapBranchAddress"><i class="fa-solid fa-location-dot"></i> Av. Rafael Buelna S/N local 16</p>
+                <p id="mapBranchHours"><i class="fa-solid fa-clock"></i> Lunes a Sábado 10 AM a 8 PM</p>
+                <p id="mapBranchPhone"><i class="fa-brands fa-whatsapp"></i> WhatsApp: 6692240194</p>
+                <div style="margin-top: 15px;">
+                    <span class="badge-info" style="background: var(--secondary); color: var(--primary); display: inline-flex; gap:8px;"><i class="fa-solid fa-truck-fast" style="color:var(--accent);"></i> ¡Envíos Nacionales y Entrega Local!</span>
+                </div>
+            </div>
+            <div class="map-frame-box">
+                <iframe id="branchMapIframe" src="https://maps.google.com/maps?q=Centro,%20Monterrey,%20Nuevo%20Leon&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="digital-menu-promo">
+        <div class="promo-badge-top" id="domPromoDigitalBadge">Descubre nuestra experiencia</div>
+        <h2 id="domPromoDigitalTitle">¡Tu Catálogo Digital!</h2>
+        <p class="promo-subtitle-top" id="domPromoDigitalSub">Elegante • Rápido • Fácil de usar.</p>
+        <div class="digital-cta-bar">
+            <div class="cta-left">
+                <span id="domPromoDigitalCta">¡Pide tus perfumes hoy mismo!</span>
+                <a href="https://wa.me/526692240194" target="_blank" class="cta-phone" id="domWaCta"><i class="fa-brands fa-whatsapp"></i> <span id="domWaCtaText">6692240194</span></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <img id="footerLogo" src="https://i.ibb.co/Q7bw6Syb/1781911790589.png" alt="Logo Footer">
+                <p id="domFooterAbout" style="font-size: 14px; color: #9CA3AF; line-height: 1.6;">Oud & Esencias, la casa del perfume árabe en México.</p>
+            </div>
+            <div class="footer-contact">
+                <h4>Ubicaciones y Horarios</h4>
+                <div id="branchDetails"><p><i class="fa-solid fa-location-dot"></i> Av. Rafael Buelna S/N local 16</p><p><i class="fa-solid fa-clock"></i> Lunes a Sábado 10 AM a 8 PM</p><p><i class="fa-brands fa-whatsapp"></i> 6692240194</p></div>
+            </div>
+            <div class="footer-qr" style="display: flex; flex-direction: column; gap: 10px;">
+                <h4>Compartir Catálogo</h4>
+                <div style="background: white; padding: 10px; border-radius: 12px; display: inline-block; width: max-content;">
+                    <img id="topQrCode" src="https://i.ibb.co/bM6kRzQx/qr-code-2.png" alt="Código QR" onclick="clickQrCounter()" style="width: 100px; height: 100px; cursor: pointer; display: block;">
+                </div>
+                <p style="font-size: 12px; color: #9CA3AF;">Toca el código para opciones</p>
+            </div>
+        </div>
+        <div class="copyright" id="domFooterCopy">© 2026 Oud & Esencias.</div>
+    </footer>
+
+    <div class="chat-widget">
+        <button class="chat-btn" onclick="toggleChatWindow()"><i class="fa-solid fa-robot"></i></button>
+        <div class="chat-window" id="chatbotWindow">
+            <div class="chat-header">
+                <span><i class="fa-solid fa-bolt"></i> Oud Asistente Virtual</span>
+                <button class="chat-close" onclick="toggleChatWindow()">×</button>
+            </div>
+            <div class="chat-messages" id="chatMsgBox">
+                <div class="chat-msg bot">¡Hola! Soy la IA de Oud & Esencias. Conozco todo el catálogo, precios y sucursales. ¿Puedo ayudarte a encontrar tu aroma ideal o agregar algún perfume a tu orden? 🛒</div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="chatInputBox" class="chat-input" placeholder="Ej. Quiero comprar el Untold..." onkeypress="handleBotKeyPress(event)">
+                <button class="chat-send" onclick="sendToBot()"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <h3><i class="fa-solid fa-file-invoice-dollar"></i> Tu Bolsa</h3>
+            <button class="close-cart" onclick="toggleCart()">×</button>
+        </div>
+        <div class="cart-body" id="cartBody"></div>
+        <div class="cart-checkout-details" id="cartCheckoutDetails" style="display: none;">
+            <div class="checkout-form">
+                <h4>Datos de Entrega</h4>
+                <div class="form-group">
+                    <div class="radio-tile-group">
+                        <label class="radio-label"><input type="radio" name="deliveryMethod" value="domicilio" checked="" onchange="toggleAddressFields(true)"> Envío 📦</label>
+                        <label class="radio-label"><input type="radio" name="deliveryMethod" value="recojer" onchange="toggleAddressFields(false)"> Recoger 🛍️</label>
+                    </div>
+                </div>
+                <div class="form-group"><input type="text" id="clientName" class="form-input" placeholder="Nombre completo"></div>
+                <div class="form-group"><input type="tel" id="clientPhone" class="form-input" placeholder="Teléfono"></div>
+                <div id="addressFields"><div class="form-group"><input type="text" id="clientAddress" class="form-input" placeholder="Dirección Completa de Envío"></div></div>
+            </div>
+            <div class="qr-cart-container">
+                <p>ESCANEA O COMPARTE</p>
+                <img id="cartQrCode" src="https://i.ibb.co/bM6kRzQx/qr-code-2.png" alt="Código QR">
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total-box"><span>Total:</span><span id="cartTotal">$0</span></div>
+            <button class="checkout-btn" onclick="sendWhatsAppOrder()"><i class="fa-brands fa-whatsapp"></i> Confirmar Pedido</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="adminOverlay" onclick="closeAdminPanel()"></div>
+    <div class="admin-panel-modal" id="adminPanelModal">
+        <div class="admin-header">
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <h3 style="margin: 0;"><i class="fa-solid fa-sliders"></i> Panel Administrador Central</h3>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                <button id="btnGlobalSync" onclick="syncCloudUI()" style="background: var(--secondary); color: var(--accent); border: 2px solid var(--primary); padding: 8px 14px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 13px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);"><i class="fa-solid fa-cloud-arrow-up"></i> Publicar en Vivo</button>
+                
+                <button onclick="toggleAdminFullscreen()" style="background: #3b82f6; color: white; border: none; padding: 8px 14px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 13px;"><i class="fa-solid fa-expand"></i> Expandir</button>
+                <button onclick="location.reload()" style="background: var(--success); color: white; border: none; padding: 8px 14px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 13px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);"><i class="fa-solid fa-floppy-disk"></i> Recargar Interfaz</button>
+                <button onclick="logoutAdmin()" style="background: #EF4444; color: white; border: none; padding: 8px 14px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 13px;"><i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión</button>
+                <button class="close-cart" style="margin-left: 5px;" onclick="closeAdminPanel()">×</button>
+            </div>
+        </div>
+        
+        <div class="admin-body" tabindex="0">
+            <div class="admin-tab-section">
+                <button class="admin-tab-link" id="tabLinkMenu" onclick="switchAdminTab('menu')">Catálogo</button>
+                <button class="admin-tab-link" id="tabLinkCategories" onclick="switchAdminTab('categories')">Categorías</button>
+                <button class="admin-tab-link" id="tabLinkPromo" onclick="switchAdminTab('promo')">Promoción</button>
+                <button class="admin-tab-link" id="tabLinkBranches" onclick="switchAdminTab('branches')">Sucursales</button>
+                <button class="admin-tab-link" id="tabLinkAppearance" onclick="switchAdminTab('appearance')">Diseño</button>
+                <button class="admin-tab-link" id="tabLinkImages" onclick="switchAdminTab('images')">Imágenes</button>
+                <button class="admin-tab-link" id="tabLinkTexts" onclick="switchAdminTab('texts')">Textos</button>
+                <button class="admin-tab-link" id="tabLinkUrlgen" style="color: #25D366;" onclick="switchAdminTab('urlgen')"><i class="fa-solid fa-link"></i> URL</button>
+                <button class="admin-tab-link active" id="tabLinkSecurity" style="color: rgb(147, 51, 234); display: inline-block;" onclick="switchAdminTab('security')"><i class="fa-solid fa-cloud"></i> Nube & Seguridad</button>
+            </div>
+
+            <div id="adminSectionMenu" style="display: none;">
+                <div class="admin-form-box">
+                    <h4 id="adminFormTitle">Agregar un Perfume</h4>
+                    <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <div><label style="font-size:11px; font-weight:700;">Categoría:</label><select id="adminItemCategory" class="form-input"><option value="armaf">Armaf</option><option value="prurba">Pru</option></select></div>
+                        <div><label style="font-size:11px; font-weight:700;">Precio (MXN):</label><input type="number" id="adminItemPrice" class="form-input" placeholder="Ej. 850"></div>
+                    </div>
+                    <div class="form-group"><label style="font-size:11px; font-weight:700;">Nombre del producto:</label><input type="text" id="adminItemName" class="form-input" placeholder="Ej. Club de Nuit Intense Men"></div>
+                    <div class="form-group"><label style="font-size:11px; font-weight:700;">Descripción:</label><input type="text" id="adminItemDesc" class="form-input" placeholder="Ej. Fragancia frutal y ahumada de alta duración."></div>
+                    <div class="file-upload-wrapper">
+                        <label style="font-size:11px; font-weight:700;">Imagen del producto (URL Opcional):</label>
+                        <input type="text" id="adminItemImage" placeholder="Ej. https://i.ibb.co/imagen/perfume.jpg" onchange="handleItemImageUrl(event)">
+                        <img id="adminItemImagePreview" style="width:70px; height:70px; display:none; margin-top:8px; border-radius:8px; object-fit:cover; border: 1px solid #E5E7EB;">
+                    </div>
+                    <button class="admin-btn-save" id="adminSubmitBtn" onclick="saveItemAdmin()">Agregar / Actualizar Producto</button>
+                    <button class="admin-btn-cancel" id="adminCancelEditBtn" onclick="cancelEditAdmin()" style="display:none; background:#9CA3AF;">Cancelar Edición</button>
+                </div>
+                <div style="margin-top:20px;">
+                    <label style="font-size:12px; font-weight:700; color:var(--secondary);">Lista de Productos (Se guardan en la nube):</label>
+                    <div class="admin-list-scroll" id="adminItemsList"></div>
+                </div>
+            </div>
+
+            <div id="adminSectionCategories" style="display: none;">
+                <div class="admin-form-box">
+                    <h4>Crear Nueva Categoría</h4>
+                    <div class="form-group"><label style="font-size:11px; font-weight:700;">ID (sin espacios, ej: 'verano'):</label><input type="text" id="adminCatId" class="form-input" placeholder="Ej. afnan"></div>
+                    <div class="form-group"><label style="font-size:11px; font-weight:700;">Nombre a Mostrar (ej: 'Perfumes de Verano'):</label><input type="text" id="adminCatName" class="form-input" placeholder="Ej. Colección Afnan"></div>
+                    <button class="admin-btn-save" onclick="saveCategoryAdmin()">Agregar Categoría</button>
+                </div>
+                <div style="margin-top:20px;">
+                    <label style="font-size:12px; font-weight:700; color:var(--secondary);">Categorías Actuales:</label>
+                    <div class="admin-list-scroll" id="adminCategoriesList"></div>
+                </div>
+            </div>
+
+            <div id="adminSectionPromo" style="display: none;">
+                <div class="admin-form-box">
+                    <h4>Editar Banner Promocional</h4>
+                    <div class="form-group"><label style="font-size:11px; font-weight:700;">Etiqueta:</label><input type="text" id="adminPromoTag" class="form-input" placeholder="Ej. Lanzamiento Exclusivo"></div>
+                    <div class="form-group"><label style="font-size:11px; font-weight:700;">Título:</label><input type="text" id="adminPromoTitle" class="form-input" placeholder="Ej. Club Nuit Bling"></div>
+                    <div class="form-group"><label style="font-size:11px; font-weight:700;">Precio/Oferta:</label><input type="text" id="adminPromoPrice" class="form-input" placeholder="Ej. $1,150 Mxn"></div>
+                    <div class="form-group"><label style="font-size:11px; font-weight:700;">Descripción:</label><input type="text" id="adminPromoDesc" class="form-input" placeholder="Ej. El rey de los cumplidos."></div>
+                    <div class="file-upload-wrapper"><label style="font-size:11px; font-weight:700;">Imagen de la Promoción (URL):</label><input type="text" id="inputAdminPromoImg" placeholder="Ej. https://i.ibb.co/imagen/promo.jpg" onchange="handleImageUrl(event, 'promoImg')"></div>
+                    <button class="admin-btn-save" onclick="savePromoAdmin()">Actualizar Datos de Promoción</button>
+                </div>
+            </div>
+
+            <div id="adminSectionBranches" style="display: none;">
+                <div class="admin-form-box">
+                    <h4 id="adminBranchFormTitle">Agregar Sucursal</h4>
+                    <div class="form-group"><label style="font-size:11px; font-weight:700;">Nombre de Sucursal:</label><input type="text" id="adminBranchName" class="form-input" placeholder="Ej. Boutique Norte"></div>
+                    <div class="form-group"><label style="font-size:11px; font-weight:700;">Dirección Física:</label><input type="text" id="adminBranchAddr" class="form-input" placeholder="Ej. Av. Universidad #402 Local B"></div>
+                    <div class="form-group"><label style="font-size:11px; font-weight:700;">WhatsApp (Ej. 52...):</label><input type="text" id="adminBranchPhone" class="form-input" placeholder="Ej. 526692240194"></div>
+                    <div class="form-group"><label style="font-size:11px; font-weight:700;">Horarios:</label><input type="text" id="adminBranchHours" class="form-input" placeholder="Ej. Lunes a Sábado 10 AM a 8 PM"></div>
+                    <button class="admin-btn-save" id="adminBranchSubmitBtn" onclick="saveBranchAdmin()">Agregar Sucursal</button>
+                    <button class="admin-btn-cancel" id="adminCancelBranchEditBtn" onclick="cancelEditBranchAdmin()" style="display:none; background:#9CA3AF;">Cancelar Edición</button>
+                </div>
+                <div style="margin-top:20px;">
+                    <label style="font-size:12px; font-weight:700; color:var(--secondary);">Lista de Sucursales:</label>
+                    <div class="admin-list-scroll" id="adminBranchesList"></div>
+                </div>
+            </div>
+
+            <div id="adminSectionAppearance" style="display: none;">
+                <div class="admin-form-box">
+                    <h4>Configuración Visual Avanzada</h4>
+                    <label style="font-size:12px; font-weight:700; display:block; margin-bottom:10px;">Paleta de Colores:</label>
+                    <div class="color-picker-group"><label style="font-size:13px; font-weight:600;">Color Principal:</label><input type="color" id="colorPrimary" onchange="updateDesignSettings()"></div>
+                    <div class="color-picker-group"><label style="font-size:13px; font-weight:600;">Color Secundario:</label><input type="color" id="colorSecondary" onchange="updateDesignSettings()"></div>
+                    <div class="color-picker-group"><label style="font-size:13px; font-weight:600;">Color de Acento:</label><input type="color" id="colorAccent" onchange="updateDesignSettings()"></div>
+                    <div class="form-group"><label style="font-size:11px; font-weight:700; display:block; margin:20px 0 10px;">Alineación Texto Hero:</label><select id="heroTextAlign" class="form-input" onchange="updateDesignSettings()"><option value="left">Izquierda</option><option value="center">Centrado</option><option value="right">Derecha</option></select></div>
+                    <div class="form-group"><label style="font-size:11px; font-weight:700; display:block; margin:20px 0 10px;">Tamaño Logo (px):</label><input type="number" id="adminLogoSize" class="form-input" placeholder="Ej. 55" onchange="updateDesignSettings()"></div>
+                </div>
+            </div>
+
+            <div id="adminSectionImages" style="display: none;">
+                <div class="admin-form-box">
+                    <h4>Gestión de Imágenes Generales</h4>
+                    <div class="file-upload-wrapper"><label style="font-size:12px; font-weight:700;">Logo Principal:</label><input type="text" id="inputAdminLogo" placeholder="Ej. https://i.ibb.co/imagen/logo.png" onchange="handleImageUrl(event, 'logo')"></div>
+                    <div class="file-upload-wrapper"><label style="font-size:12px; font-weight:700;">Fondo Encabezado:</label><input type="text" id="inputAdminHeroBg" placeholder="Ej. https://images.unsplash.com/foto-fondo.jpg" onchange="handleImageUrl(event, 'heroBg')"></div>
+                    <div class="file-upload-wrapper"><label style="font-size:12px; font-weight:700;">Código QR Global:</label><input type="text" id="inputAdminQrCode" placeholder="Ej. https://i.ibb.co/imagen/qr.png" onchange="handleImageUrl(event, 'qrCode')"></div>
+                    
+                    <div class="file-upload-wrapper" style="margin-top:20px; border-top: 2px solid #E5E7EB; padding-top:15px;">
+                        <label style="font-size:12px; font-weight:700;">Slider de Animación (URL e Info):</label>
+                        <div style="display:flex; gap:8px; margin-bottom:8px;"><input type="text" id="adminSlider1" class="form-input" placeholder="URL de la Imagen 1" style="flex: 2;"><input type="text" id="adminSliderDesc1" class="form-input" placeholder="Descripción 1" style="flex: 1;"></div>
+                        <div style="display:flex; gap:8px; margin-bottom:8px;"><input type="text" id="adminSlider2" class="form-input" placeholder="URL de la Imagen 2" style="flex: 2;"><input type="text" id="adminSliderDesc2" class="form-input" placeholder="Descripción 2" style="flex: 1;"></div>
+                        <div style="display:flex; gap:8px; margin-bottom:8px;"><input type="text" id="adminSlider3" class="form-input" placeholder="URL de la Imagen 3" style="flex: 2;"><input type="text" id="adminSliderDesc3" class="form-input" placeholder="Descripción 3" style="flex: 1;"></div>
+                        <div style="display:flex; gap:8px; margin-bottom:8px;"><input type="text" id="adminSlider4" class="form-input" placeholder="URL de la Imagen 4" style="flex: 2;"><input type="text" id="adminSliderDesc4" class="form-input" placeholder="Descripción 4" style="flex: 1;"></div>
+                        <div style="display:flex; gap:8px;"><input type="text" id="adminSlider5" class="form-input" placeholder="URL de la Imagen 5" style="flex: 2;"><input type="text" id="adminSliderDesc5" class="form-input" placeholder="Descripción 5" style="flex: 1;"></div>
+                    </div>
+                    <button class="admin-btn-save" style="margin-top:20px;" onclick="saveImagesAdmin()">Actualizar Slider en la Nube</button>
+                </div>
+            </div>
+
+            <div id="adminSectionTexts" style="display: none;">
+                <div class="admin-form-box">
+                    <h4>Textos Generales y Configuración</h4>
+                    <div class="form-group"><label style="font-size:11px; font-weight:700;">Título Principal:</label><input type="text" id="adminHeroTitle" class="form-input" placeholder="Ej. Perfumes originales"></div>
+                    <div class="form-group"><label style="font-size:11px; font-weight:700;">Descripción Principal:</label><textarea id="adminHeroDesc" class="form-input" placeholder="Ej. La auténtica esencia y lujo del Medio Oriente en México."></textarea></div>
+                    <div class="form-group"><label style="font-size:11px; font-weight:700;">Título Slider:</label><input type="text" id="adminSliderTitle" class="form-input" placeholder="Ej. Nuestras Joyas Árabes"></div>
+                    <div class="form-group"><label style="font-size:11px; font-weight:700;">Título Catálogo:</label><input type="text" id="adminMenuTitle" class="form-input" placeholder="Ej. Catálogo Oficial"></div>
+                    <div class="form-group"><label style="font-size:11px; font-weight:700;">Título Mapa:</label><input type="text" id="adminMapTitle" class="form-input" placeholder="Ej. Nuestra Ubicación"></div>
+                    <div class="form-group"><label style="font-size:11px; font-weight:700;">URL Mapa (Iframe):</label><input type="text" id="adminMapUrl" class="form-input" placeholder="Ej. https://www.google.com/maps/embed?..."></div>
+                    <div class="form-group"><label style="font-size:11px; font-weight:700;">Badge Digital:</label><input type="text" id="adminPromoDigitalBadge" class="form-input" placeholder="Ej. Descubre nuestra experiencia"></div>
+                    <div class="form-group"><label style="font-size:11px; font-weight:700;">Título Digital:</label><input type="text" id="adminPromoDigitalTitle" class="form-input" placeholder="Ej. ¡Tu Catálogo Digital!"></div>
+                    <div class="form-group"><label style="font-size:11px; font-weight:700;">Subtítulo Digital:</label><input type="text" id="adminPromoDigitalSub" class="form-input" placeholder="Ej. Elegante • Rápido • Fácil de usar."></div>
+                    <div class="form-group"><label style="font-size:11px; font-weight:700;">Texto Botón WP:</label><input type="text" id="adminPromoDigitalCta" class="form-input" placeholder="Ej. ¡Pide tus perfumes hoy mismo!"></div>
+                    <div class="form-group"><label style="font-size:11px; font-weight:700;">Descripción Footer:</label><input type="text" id="adminFooterAbout" class="form-input" placeholder="Ej. Oud & Esencias, la casa del perfume árabe en México."></div>
+                    <div class="form-group"><label style="font-size:11px; font-weight:700;">Copyright:</label><input type="text" id="adminFooterCopy" class="form-input" placeholder="Ej. © 2026 Oud & Esencias."></div>
+                    <button class="admin-btn-save" onclick="saveTextsAdmin()">Actualizar Textos</button>
+                </div>
+            </div>
+
+            <div id="adminSectionUrlgen" style="display: none;">
+                <div class="admin-form-box">
+                    <h4><i class="fa-solid fa-cloud-arrow-up"></i> Generador de URL para Imágenes</h4>
+                    <p style="font-size:12px; color:var(--text-muted); margin-bottom:15px; line-height:1.5;">Sube tu foto y cópiala como URL para usar en el catálogo o sliders.</p>
+                    <div style="text-align: center; padding: 30px; border: 2px dashed var(--primary); border-radius: 12px; background: rgba(197, 160, 89, 0.05); margin-bottom: 20px;">
+                        <label style="background: var(--secondary); color: var(--primary); padding: 12px 24px; border-radius: 8px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 10px;">
+                            <i class="fa-solid fa-file-image"></i> Seleccionar Imagen <input type="file" id="imageUploaderInput" accept="image/*" style="display:none;" onchange="uploadToImgbb(event)">
+                        </label>
+                        <div id="uploadStatus" style="font-size: 13px; font-weight: 600; margin-top: 15px;">Esperando imagen...</div>
+                    </div>
+                    <div class="form-group" style="background: #fdfdfd; padding: 15px; border-radius: 10px; border: 1px solid #E5E7EB;">
+                        <label style="font-size:11px; font-weight:700; color: var(--secondary);">URL Generada:</label>
+                        <div style="display:flex; gap:8px; margin-top: 8px;">
+                            <input type="text" id="generatedImageUrl" class="form-input" readonly="" style="background: #F3F4F6;" placeholder="Aquí aparecerá el enlace final generado">
+                            <button onclick="copyGeneratedUrl()" style="background: var(--success); color: var(--white); border: none; padding: 0 20px; border-radius: 8px; cursor: pointer; font-weight: bold;"><i class="fa-solid fa-copy"></i> Copiar</button>
+                        </div>
+                    </div>
+                    <div style="text-align: center;"><img id="generatedImagePreview" style="max-width: 100%; max-height: 250px; margin-top: 20px; border-radius: 12px; display: none; box-shadow: 0 4px 15px rgba(0,0,0,0.1);"></div>
+                </div>
+            </div>
+
+            <div id="adminSectionSecurity" style="display: block;">
+                <div class="admin-form-box">
+                    <h4><i class="fa-solid fa-cloud"></i> Configuración Npoint (Base de Datos)</h4>
+                    <p style="font-size:11px; color:var(--text-muted); margin-bottom:15px;">Añade tu ID de npoint.io. Al guardar, el sistema guardará todos los cambios en la nube de manera que todos los visitantes verán la misma actualización.</p>
+                    <div class="form-group"><label style="font-size:11px; font-weight:700;">ID de Npoint.io:</label><input type="text" id="adminNpointId" class="form-input" autocomplete="off" placeholder="Configurado desde el código maestro"></div>
+
+                    <h4 style="margin-top:25px;"><i class="fa-solid fa-lock"></i> Seguridad y Claves de Acceso</h4>
+                    <div class="form-group"><label style="font-size:11px; font-weight:700;">Clave del Panel (Doble Click en Logo):</label><input type="password" id="secLogoPass" class="form-input" autocomplete="new-password" placeholder="Ej. 2323"></div>
+                    <div class="form-group"><label style="font-size:11px; font-weight:700;">Clave de Exportación/Panel QR (10 Clicks en QR):</label><input type="password" id="secQrPass" class="form-input" autocomplete="new-password" placeholder="Ej. 2424"></div>
+                    <div class="form-group"><label style="font-size:11px; font-weight:700;">Fecha de Caducidad de las Claves:</label><input type="date" id="secExpiration" class="form-input"></div>
+                    <p style="font-size:11px; color:#EF4444; margin-bottom:10px;"><b>Nota:</b> Si la fecha caduca, los usuarios no podrán entrar. Usa la clave maestra <b>master2026</b> para acceder al sistema y poner una fecha nueva.</p>
+
+                    <button class="admin-btn-save" onclick="saveSecurityAdmin()"><i class="fa-solid fa-shield-check"></i> Guardar Configuración de Nube y Claves</button>
+
+                    <h4 style="margin-top:25px; border-top: 1px solid #E5E7EB; padding-top: 15px;"><i class="fa-solid fa-file-code"></i> Exportar Código Actualizado</h4>
+                    <p style="font-size:11px; color:var(--text-muted); margin-bottom:10px;">Visualiza y descarga el código fuente HTML envivo con todos tus cambios para respaldarlo.</p>
+                    <button class="admin-btn-save" onclick="openExportPanel()" style="background: #3b82f6; margin-top: 5px;"><i class="fa-solid fa-eye"></i> Visualizar y Descargar HTML</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="exportOverlay" onclick="closeExportPanel()"></div>
+    <div class="admin-panel-modal" id="exportPanelModal">
+        <div class="admin-header">
+            <h3><i class="fa-solid fa-code"></i> Exportar Código HTML</h3>
+            <button class="close-cart" onclick="closeExportPanel()">×</button>
+        </div>
+        <div class="admin-body">
+            <textarea id="exportHtmlTextarea" class="form-input" style="width: 100%; height: 350px; font-family: monospace; font-size: 11px; white-space: pre; background:#f4f4f4;" readonly=""></textarea>
+            <button class="admin-btn-save" onclick="downloadHTML()" style="margin-top: 15px; background: var(--success);"><i class="fa-solid fa-download"></i> Descargar Códigos Completos</button>
+        </div>
+    </div>
+
+    <script>
+        // =========================================================================
+        // 🚀 CONFIGURACIÓN MAESTRA DE LA NUBE (NPOINT)
+        // =========================================================================
+        // Pega tu ID de Npoint aquí en lugar de "48230e550f13fdc48400".
+        // Sube este archivo a Netlify UNA SOLA VEZ.
+        // Después de esto, la página se conectará mágicamente para todos tus clientes
+        // y JAMÁS tendrás que volver a subir el código a Netlify.
+        const MASTER_NPOINT_ID = "48230e550f13fdc48400"; 
+        // =========================================================================
+
+        let sysSettings = JSON.parse(localStorage.getItem('perfumes_sys')) || {
+            npoint: { id: "" }, 
+            security: { logoPass: "2121", qrPass: "232425", expiration: "2026-12-31" }
+        };
+        
+        // Limpiador automático
+        if(sysSettings.firebase) {
+            delete sysSettings.firebase;
+            if(!sysSettings.npoint) sysSettings.npoint = { id: "" };
+            localStorage.setItem('perfumes_sys', JSON.stringify(sysSettings));
+        }
+
+        // Función para obtener siempre el ID correcto (el del código tiene prioridad para que los clientes lo vean)
+        function getCloudId() {
+            if (MASTER_NPOINT_ID && MASTER_NPOINT_ID !== "INGRESA_TU_ID_AQUI") {
+                return MASTER_NPOINT_ID;
+            }
+            return sysSettings.npoint?.id;
+        }
+
+        let appConfig = JSON.parse(localStorage.getItem('perfumes_config')) || {
+            "colors": { "primary": "#c5a059", "secondary": "#0000ff", "accent": "#e8d399" },
+            "layout": { "heroTextAlign": "center", "logoSize": "100" },
+            "images": { "logo": "https://i.ibb.co/Q7bw6Syb/1781911790589.png", "heroBg": "https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=2000&auto=format&fit=crop", "promoImg": "https://i.ibb.co/3y2B3YBC/IMG-20260619-WA0021-1.jpg", "qrCode": "https://i.ibb.co/bM6kRzQx/qr-code-2.png" }
+        };
+        let appTexts = JSON.parse(localStorage.getItem('perfumes_texts')) || {
+            "heroTitle": "Perfumes originales", "heroDesc": "La auténtica esencia y lujo del Medio Oriente en México. Descubre nuestra colección exclusiva.", "sliderTitle": "Nuestras Joyas Árabes", "menuTitle": "Catálogo Oficial", "mapTitle": "Nuestra Ubicación", "mapIframeUrl": "", "promoDigitalBadge": "Descubre nuestra experiencia", "promoDigitalTitle": "¡Tu Catálogo Digital!", "promoDigitalSub": "Elegante • Rápido • Fácil de usar.", "promoDigitalCta": "¡Pide tus perfumes hoy mismo!", "footerAbout": "Oud & Esencias, la casa del perfume árabe en México.", "footerCopy": "© 2026 Oud & Esencias."
+        };
+        let branchesData = JSON.parse(localStorage.getItem('perfumes_branches')) || [
+            { "name": "Boutique Centro", "address": "Av. Rafael Buelna S/N local 16", "phone": "526692240194", "hours": "Lunes a Sábado 10 AM a 8 PM" }
+        ];
+        let categoryMap = JSON.parse(localStorage.getItem('perfumes_categories')) || { "armaf": "Armaf" };
+        let menuData = JSON.parse(localStorage.getItem('perfumes_menuData')) || [
+            { "name": "Armaf Club nuit intense men", "price": 850, "category": "armaf", "desc": "Fragancia frutal y ahumada.", "image": "https://i.ibb.co/SXQQXMvn/IMG-20260619-WA0020-1.jpg" }
+        ];
+        let promoData = JSON.parse(localStorage.getItem('perfumes_promoData')) || { "tag": "Lanzamiento Exclusivo", "title": "Club nuit bling", "price": "$1,150 Mxn", "desc": "El rey de los cumplidos." };
+        let sliderData = JSON.parse(localStorage.getItem('perfumes_slider')) || [
+            { "url": "https://i.ibb.co/DHrJqg5r/IMG-20260619-WA0026.jpg", "desc": "Lichi lush" }
+        ];
+
+        let cart = [];
+        let logoClickCount = 0; let logoClickTimeout;
+        let qrClickCount = 0; let qrClickTimeout;
+        let currentActiveCategory = Object.keys(categoryMap)[0];
+        let editingItemIndex = null; let editingBranchIndex = null;
+        let tempItemImage = "";
+
+        // --- GESTIÓN DE SEGURIDAD (SIN AUTOGUARDADO EN NAVEGADOR) ---
+        let logoLogged = false;
+        let qrLogged = false;
+
+        // --- EXPORTAR CÓDIGO HTML EN VIVO ---
+        function openExportPanel() {
+            document.getElementById('exportOverlay').classList.add('show');
+            document.getElementById('exportPanelModal').classList.add('show');
+            document.getElementById('exportHtmlTextarea').value = "Generando código en vivo...";
+            setTimeout(() => {
+                document.getElementById('exportHtmlTextarea').value = getLiveHTML();
+            }, 500);
+        }
+
+        function closeExportPanel() {
+            document.getElementById('exportOverlay').classList.remove('show');
+            document.getElementById('exportPanelModal').classList.remove('show');
+        }
+
+        function downloadHTML() {
+            const html = document.getElementById('exportHtmlTextarea').value;
+            if(!html || html.startsWith("Generando")) return;
+            const blob = new Blob([html], {type: "text/html"});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = "Oud_Esencias_Live.html";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function getLiveHTML() {
+            const clone = document.documentElement.cloneNode(true);
+            
+            const empties = ['#menuGrid', '#sliderTrack', '#categoryTabsContainer', '#sliderDots', '#branchSelect', '#adminItemsList', '#adminCategoriesList', '#adminBranchesList', '#cartBody'];
+            empties.forEach(sel => { 
+                const el = clone.querySelector(sel); 
+                if(el) el.innerHTML = ''; 
+            });
+            
+            clone.querySelectorAll('.show, .open, .fullscreen').forEach(el => el.classList.remove('show', 'open', 'fullscreen'));
+            
+            const dataScript = document.createElement('script');
+            dataScript.textContent = `
+                // --- DATOS EXPORTADOS DESDE LA NUBE / PANEL DE CONTROL ---
+                localStorage.setItem('perfumes_sys', JSON.stringify(${JSON.stringify(sysSettings)}));
+                localStorage.setItem('perfumes_config', JSON.stringify(${JSON.stringify(appConfig)}));
+                localStorage.setItem('perfumes_texts', JSON.stringify(${JSON.stringify(appTexts)}));
+                localStorage.setItem('perfumes_branches', JSON.stringify(${JSON.stringify(branchesData)}));
+                localStorage.setItem('perfumes_categories', JSON.stringify(${JSON.stringify(categoryMap)}));
+                localStorage.setItem('perfumes_menuData', JSON.stringify(${JSON.stringify(menuData)}));
+                localStorage.setItem('perfumes_promoData', JSON.stringify(${JSON.stringify(promoData)}));
+                localStorage.setItem('perfumes_slider', JSON.stringify(${JSON.stringify(sliderData)}));
+            `;
+            clone.querySelector('head').insertBefore(dataScript, clone.querySelector('head').firstChild);
+            return "<!DOCTYPE html>\n" + clone.outerHTML;
+        }
+
+        // --- SISTEMA NPOINT.IO Y SINCRONIZACIÓN EN VIVO ---
+        
+        function syncCloudUI() {
+            const npId = getCloudId();
+            if(!npId || npId === '' || npId === 'INGRESA_TU_ID_AQUI') {
+                alert("⚠️ Primero debes configurar tu ID maestro de Npoint en el código (MASTER_NPOINT_ID) para poder sincronizar.\n\nEl sistema estático necesita saber este ID para actualizar a los clientes.");
+                return;
+            }
+            
+            const dataToSave = {
+                appConfig, appTexts, branchesData, categoryMap, menuData, promoData, sliderData, sysSettings
+            };
+            
+            const btn = document.getElementById('btnGlobalSync');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Subiendo...';
+            
+            fetch(`https://api.npoint.io/${npId}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(dataToSave)
+            })
+            .then(response => response.json())
+            .then(data => {
+                btn.innerHTML = '<i class="fa-solid fa-check"></i> ¡Publicado!';
+                setTimeout(() => btn.innerHTML = originalText, 3000);
+                alert("✅ ¡Sistema sincronizado en la nube con éxito! Todos los usuarios en el mundo verán la actualización sin que tengas que volver a subir código a Netlify.");
+            })
+            .catch(error => { 
+                console.error("Error sincronizando con la nube", error);
+                btn.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Error';
+                setTimeout(() => btn.innerHTML = originalText, 3000);
+                alert("❌ Hubo un error al subir a la nube. Verifica tu conexión a internet o tu ID de Npoint.");
+            });
+        }
+
+        function initApp() {
+            const npId = getCloudId();
+            
+            if (npId && npId !== '' && npId !== 'INGRESA_TU_ID_AQUI') {
+                fetch(`https://api.npoint.io/${npId}?t=${new Date().getTime()}`, { cache: 'no-store' })
+                    .then(response => response.json())
+                    .then(data => {
+                        if(data && Object.keys(data).length > 0) {
+                            if(data.appConfig) appConfig = data.appConfig;
+                            if(data.appTexts) appTexts = data.appTexts;
+                            if(data.branchesData) branchesData = data.branchesData;
+                            if(data.categoryMap) categoryMap = data.categoryMap;
+                            if(data.menuData) menuData = data.menuData;
+                            if(data.promoData) promoData = data.promoData;
+                            if(data.sliderData) sliderData = data.sliderData;
+                            if(data.sysSettings) sysSettings = data.sysSettings;
+
+                            localStorage.setItem('perfumes_sys', JSON.stringify(sysSettings));
+                            localStorage.setItem('perfumes_config', JSON.stringify(appConfig));
+                            localStorage.setItem('perfumes_texts', JSON.stringify(appTexts));
+                            localStorage.setItem('perfumes_branches', JSON.stringify(branchesData));
+                            localStorage.setItem('perfumes_categories', JSON.stringify(categoryMap));
+                            localStorage.setItem('perfumes_menuData', JSON.stringify(menuData));
+                            localStorage.setItem('perfumes_promoData', JSON.stringify(promoData));
+                            localStorage.setItem('perfumes_slider', JSON.stringify(sliderData));
+                        }
+                        startRender();
+                    })
+                    .catch(error => { 
+                        console.error("Error obteniendo datos de npoint.io", error); 
+                        startRender(); 
+                    });
+            } else {
+                startRender();
+            }
+        }
+
+        function syncCloud() {
+            const npId = getCloudId();
+            if(npId && npId !== '' && npId !== 'INGRESA_TU_ID_AQUI') {
+                const dataToSave = { appConfig, appTexts, branchesData, categoryMap, menuData, promoData, sliderData, sysSettings };
+                fetch(`https://api.npoint.io/${npId}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(dataToSave)
+                }).catch(error => console.error("Error en sincronización silenciosa", error));
+            }
+        }
+
+        function startRender() {
+            applyGlobalConfig();
+            renderBranchSelector(); updateBranchInfo();
+            renderSlider(); renderCategoryTabs(); renderPromoUI();
+            if(currentActiveCategory) filterCategory(currentActiveCategory);
+            setupSliderDots(); loadAdminInputs(); updateCartUI();
+        }
+
+        function applyGlobalConfig() {
+            document.documentElement.style.setProperty('--primary', appConfig.colors.primary);
+            document.documentElement.style.setProperty('--secondary', appConfig.colors.secondary);
+            document.documentElement.style.setProperty('--accent', appConfig.colors.accent);
+            document.documentElement.style.setProperty('--logo-size', (appConfig.layout.logoSize || 55) + 'px');
+            document.getElementById('heroSection').style.textAlign = appConfig.layout.heroTextAlign;
+            document.getElementById('mainLogo').src = appConfig.images.logo;
+            document.getElementById('footerLogo').src = appConfig.images.logo;
+            document.getElementById('heroSection').style.backgroundImage = `linear-gradient(rgba(17,17,17,0.8), rgba(17,17,17,0.9)), url('${appConfig.images.heroBg}')`;
+            document.getElementById('domPromoImg').style.backgroundImage = `url('${appConfig.images.promoImg}')`;
+            document.getElementById('topQrCode').src = appConfig.images.qrCode;
+            document.getElementById('cartQrCode').src = appConfig.images.qrCode;
+            
+            document.getElementById('colorPrimary').value = appConfig.colors.primary;
+            document.getElementById('colorSecondary').value = appConfig.colors.secondary;
+            document.getElementById('colorAccent').value = appConfig.colors.accent;
+            document.getElementById('heroTextAlign').value = appConfig.layout.heroTextAlign;
+
+            document.getElementById('domHeroTitle').innerText = appTexts.heroTitle;
+            document.getElementById('domHeroDesc').innerText = appTexts.heroDesc;
+            document.getElementById('domSliderTitle').innerText = appTexts.sliderTitle;
+            document.getElementById('domMenuTitle').innerText = appTexts.menuTitle;
+            document.getElementById('domMapTitle').innerText = appTexts.mapTitle;
+            document.getElementById('domPromoDigitalBadge').innerText = appTexts.promoDigitalBadge;
+            document.getElementById('domPromoDigitalTitle').innerText = appTexts.promoDigitalTitle;
+            document.getElementById('domPromoDigitalSub').innerText = appTexts.promoDigitalSub;
+            document.getElementById('domPromoDigitalCta').innerText = appTexts.promoDigitalCta;
+            document.getElementById('domFooterAbout').innerText = appTexts.footerAbout;
+            document.getElementById('domFooterCopy').innerHTML = appTexts.footerCopy;
+            document.getElementById('branchMapIframe').src = appTexts.mapIframeUrl || "https://maps.google.com/maps?q=Centro,%20Monterrey,%20Nuevo%20Leon&t=&z=15&ie=UTF8&iwloc=&output=embed";
+        }
+
+        function updateDesignSettings() {
+            appConfig.colors.primary = document.getElementById('colorPrimary').value;
+            appConfig.colors.secondary = document.getElementById('colorSecondary').value;
+            appConfig.colors.accent = document.getElementById('colorAccent').value;
+            appConfig.layout.heroTextAlign = document.getElementById('heroTextAlign').value;
+            appConfig.layout.logoSize = document.getElementById('adminLogoSize').value || 55;
+            localStorage.setItem('perfumes_config', JSON.stringify(appConfig)); syncCloud();
+            applyGlobalConfig();
+        }
+
+        function handleImageUrl(event, imageKey) {
+            const url = event.target.value.trim();
+            if (url) {
+                appConfig.images[imageKey] = url;
+                localStorage.setItem('perfumes_config', JSON.stringify(appConfig)); syncCloud();
+                applyGlobalConfig();
+            }
+        }
+
+        function checkAuth(correctPass, panelType, successCallback) {
+            let today = new Date().toISOString().split('T')[0];
+            let isExpired = sysSettings.security.expiration && (today > sysSettings.security.expiration);
+            
+            let msg = isExpired ? "¡SISTEMA CADUCADO!\nIngrese Clave Maestra de seguridad:" : "Contraseña (Código):";
+            let entered = prompt(msg);
+            
+            if (isExpired) {
+                if (entered === "master2026") {
+                    alert("Acceso maestro concedido. Recuerde actualizar la fecha de caducidad en el panel Nube & Seguridad.");
+                    if(panelType === 'logo') logoLogged = true;
+                    if(panelType === 'qr') qrLogged = true;
+                    successCallback();
+                } else {
+                    alert("Clave caducada. Acceso bloqueado.");
+                }
+            } else {
+                if (entered === correctPass || entered === "master2026") {
+                    if(panelType === 'logo') logoLogged = true;
+                    if(panelType === 'qr') qrLogged = true;
+                    successCallback();
+                } else {
+                    alert("Contraseña incorrecta");
+                }
+            }
+        }
+
+        function clickLogoCounter() {
+            logoClickCount++; clearTimeout(logoClickTimeout);
+            logoClickTimeout = setTimeout(() => { logoClickCount = 0; }, 3000);
+            if (logoClickCount === 2) {
+                logoClickCount = 0;
+                if (logoLogged) { openAdminPanel('logo'); } 
+                else { checkAuth(sysSettings.security.logoPass, 'logo', () => openAdminPanel('logo')); }
+            }
+        }
+
+        function clickQrCounter() {
+            qrClickCount++; clearTimeout(qrClickTimeout);
+            qrClickTimeout = setTimeout(() => { qrClickCount = 0; }, 3000);
+            if (qrClickCount === 10) {
+                qrClickCount = 0;
+                if (qrLogged) { openAdminPanel('qr'); } 
+                else { checkAuth(sysSettings.security.qrPass, 'qr', () => openAdminPanel('qr')); }
+            }
+        }
+
+        function logoutAdmin() {
+            logoLogged = false;
+            qrLogged = false;
+            closeAdminPanel(); alert("Sesión cerrada correctamente.");
+        }
+
+        function toggleAdminFullscreen() {
+            const modal = document.getElementById('adminPanelModal');
+            modal.classList.toggle('fullscreen');
+            document.querySelector('.admin-body').focus();
+        }
+
+        function openAdminPanel(source) { 
+            document.getElementById('adminPanelModal').classList.add('show'); 
+            document.getElementById('adminOverlay').classList.add('show'); 
+            renderAdminLists(); 
+            const secTab = document.getElementById('tabLinkSecurity');
+            if (source === 'qr') {
+                secTab.style.display = 'inline-block';
+            } else {
+                secTab.style.display = 'none';
+                if (document.getElementById('adminSectionSecurity').style.display === 'block') {
+                    switchAdminTab('menu');
+                }
+            }
+        }
+
+        function closeAdminPanel() { 
+            const modal = document.getElementById('adminPanelModal');
+            modal.classList.remove('show'); 
+            modal.classList.remove('fullscreen'); 
+            document.getElementById('adminOverlay').classList.remove('show'); 
+            cancelEditAdmin(); 
+            cancelEditBranchAdmin(); 
+        }
+        
+        function switchAdminTab(tabName) {
+            const sections = ['Menu', 'Categories', 'Promo', 'Branches', 'Appearance', 'Images', 'Texts', 'Urlgen', 'Security'];
+            sections.forEach(sec => {
+                document.getElementById(`adminSection${sec}`).style.display = (sec.toLowerCase() === tabName) ? 'block' : 'none';
+                document.getElementById(`tabLink${sec}`).classList.toggle('active', sec.toLowerCase() === tabName);
+            });
+        }
+
+        function loadAdminInputs() {
+            document.getElementById('adminPromoTag').value = promoData.tag; document.getElementById('adminPromoTitle').value = promoData.title;
+            document.getElementById('adminPromoPrice').value = promoData.price; document.getElementById('adminPromoDesc').value = promoData.desc;
+            document.getElementById('inputAdminPromoImg').value = appConfig.images.promoImg || '';
+            document.getElementById('inputAdminLogo').value = appConfig.images.logo || ''; document.getElementById('inputAdminHeroBg').value = appConfig.images.heroBg || '';
+            document.getElementById('inputAdminQrCode').value = appConfig.images.qrCode || ''; document.getElementById('adminLogoSize').value = appConfig.layout.logoSize || 55;
+            
+            for(let i=0; i<5; i++) {
+                if(document.getElementById(`adminSlider${i+1}`)) {
+                    document.getElementById(`adminSlider${i+1}`).value = sliderData[i]?.url || '';
+                    document.getElementById(`adminSliderDesc${i+1}`).value = sliderData[i]?.desc || '';
+                }
+            }
+
+            document.getElementById('adminHeroTitle').value = appTexts.heroTitle; document.getElementById('adminHeroDesc').value = appTexts.heroDesc;
+            document.getElementById('adminSliderTitle').value = appTexts.sliderTitle; document.getElementById('adminMenuTitle').value = appTexts.menuTitle;
+            document.getElementById('adminMapTitle').value = appTexts.mapTitle; document.getElementById('adminMapUrl').value = appTexts.mapIframeUrl;
+            document.getElementById('adminPromoDigitalBadge').value = appTexts.promoDigitalBadge; document.getElementById('adminPromoDigitalTitle').value = appTexts.promoDigitalTitle;
+            document.getElementById('adminPromoDigitalSub').value = appTexts.promoDigitalSub; document.getElementById('adminPromoDigitalCta').value = appTexts.promoDigitalCta;
+            document.getElementById('adminFooterAbout').value = appTexts.footerAbout; document.getElementById('adminFooterCopy').value = appTexts.footerCopy;
+
+            if(document.getElementById('adminNpointId')) {
+                if (MASTER_NPOINT_ID && MASTER_NPOINT_ID !== "INGRESA_TU_ID_AQUI") {
+                    document.getElementById('adminNpointId').value = MASTER_NPOINT_ID;
+                    document.getElementById('adminNpointId').readOnly = true;
+                    document.getElementById('adminNpointId').style.backgroundColor = "#F3F4F6";
+                    document.getElementById('adminNpointId').title = "Modifica esto en la variable MASTER_NPOINT_ID del código.";
+                } else {
+                    document.getElementById('adminNpointId').value = sysSettings.npoint?.id || "";
+                }
+            }
+            
+            document.getElementById('secLogoPass').value = sysSettings.security.logoPass; document.getElementById('secQrPass').value = sysSettings.security.qrPass;
+            document.getElementById('secExpiration').value = sysSettings.security.expiration;
+        }
+
+        function saveSecurityAdmin() {
+            if(!sysSettings.npoint) sysSettings.npoint = {};
+            if (MASTER_NPOINT_ID === "INGRESA_TU_ID_AQUI") {
+                sysSettings.npoint.id = document.getElementById('adminNpointId').value.trim();
+            }
+            
+            sysSettings.security.logoPass = document.getElementById('secLogoPass').value.trim();
+            sysSettings.security.qrPass = document.getElementById('secQrPass').value.trim();
+            sysSettings.security.expiration = document.getElementById('secExpiration').value;
+            localStorage.setItem('perfumes_sys', JSON.stringify(sysSettings));
+
+            if (getCloudId()) { syncCloud(); }
+
+            // Limpiamos las variables de sesión para que pida clave de nuevo tras guardar
+            logoLogged = false;
+            qrLogged = false;
+
+            alert("¡Configuración guardada y sincronizada! La página se reiniciará.");
+            location.reload();
+        }
+
+        function saveBranchAdmin() {
+            const name = document.getElementById('adminBranchName').value.trim(); const address = document.getElementById('adminBranchAddr').value.trim();
+            const phone = document.getElementById('adminBranchPhone').value.trim(); const hours = document.getElementById('adminBranchHours').value.trim();
+            if (!name || !address || !phone) return alert("Nombre, dirección y teléfono son obligatorios.");
+            if (editingBranchIndex !== null) branchesData[editingBranchIndex] = { name, address, phone, hours }; else branchesData.push({ name, address, phone, hours });
+            localStorage.setItem('perfumes_branches', JSON.stringify(branchesData)); syncCloud();
+            renderAdminLists(); cancelEditBranchAdmin(); updateBranchInfo(); renderBranchSelector();
+        }
+
+        function deleteBranchAdmin(index) {
+            if(confirm("¿Eliminar esta sucursal del sistema?")) { branchesData.splice(index, 1); localStorage.setItem('perfumes_branches', JSON.stringify(branchesData)); syncCloud(); renderAdminLists(); updateBranchInfo(); renderBranchSelector(); }
+        }
+
+        function saveItemAdmin() {
+            const category = document.getElementById('adminItemCategory').value; const price = parseFloat(document.getElementById('adminItemPrice').value);
+            const name = document.getElementById('adminItemName').value.trim(); const desc = document.getElementById('adminItemDesc').value.trim();
+            if (!name || isNaN(price) || !desc) return alert("Completa todos los campos obligatorios.");
+            if (editingItemIndex !== null) menuData[editingItemIndex] = { name, price, category, desc, image: tempItemImage }; else menuData.push({ name, price, category, desc, image: tempItemImage });
+            localStorage.setItem('perfumes_menuData', JSON.stringify(menuData)); syncCloud();
+            renderAdminLists(); cancelEditAdmin(); filterCategory(currentActiveCategory);
+        }
+
+        function deleteSelectedItems() {
+            const checkboxes = document.querySelectorAll('.item-checkbox:checked');
+            if (checkboxes.length === 0) return alert("Selecciona al menos un producto.");
+            if (confirm(`¿Eliminar ${checkboxes.length} productos seleccionados?`)) {
+                const indexes = Array.from(checkboxes).map(cb => parseInt(cb.value)).sort((a, b) => b - a);
+                indexes.forEach(index => { menuData.splice(index, 1); });
+                localStorage.setItem('perfumes_menuData', JSON.stringify(menuData)); syncCloud(); renderAdminLists(); filterCategory(currentActiveCategory);
+            }
+        }
+
+        function deleteItemAdmin(index) {
+            if (confirm("¿Eliminar producto?")) { menuData.splice(index, 1); localStorage.setItem('perfumes_menuData', JSON.stringify(menuData)); syncCloud(); renderAdminLists(); filterCategory(currentActiveCategory); }
+        }
+
+        function saveCategoryAdmin() {
+            const key = document.getElementById('adminCatId').value.trim().toLowerCase().replace(/\s+/g, ''); const name = document.getElementById('adminCatName').value.trim();
+            if(!key || !name) return alert("Completa ID y Nombre");
+            categoryMap[key] = name; localStorage.setItem('perfumes_categories', JSON.stringify(categoryMap)); syncCloud();
+            renderAdminLists(); renderCategoryTabs(); document.getElementById('adminCatId').value = ''; document.getElementById('adminCatName').value = '';
+        }
+
+        function deleteCategoryAdmin(key) {
+            if(Object.keys(categoryMap).length <= 1) return alert("No puedes borrar la última categoría.");
+            if (confirm("¿Borrar esta categoría?")) { delete categoryMap[key]; localStorage.setItem('perfumes_categories', JSON.stringify(categoryMap)); syncCloud(); renderAdminLists(); renderCategoryTabs(); }
+        }
+
+        function savePromoAdmin() {
+            promoData = { tag: document.getElementById('adminPromoTag').value.trim(), title: document.getElementById('adminPromoTitle').value.trim(), price: document.getElementById('adminPromoPrice').value.trim(), desc: document.getElementById('adminPromoDesc').value.trim() };
+            localStorage.setItem('perfumes_promoData', JSON.stringify(promoData)); syncCloud(); renderPromoUI();
+        }
+
+        function saveImagesAdmin() {
+            sliderData = [];
+            for(let i=0; i<5; i++) {
+                if(document.getElementById(`adminSlider${i+1}`)) {
+                    sliderData.push({ url: document.getElementById(`adminSlider${i+1}`).value.trim(), desc: document.getElementById(`adminSliderDesc${i+1}`).value.trim() });
+                }
+            }
+            localStorage.setItem('perfumes_slider', JSON.stringify(sliderData)); syncCloud(); renderSlider(); setupSliderDots();
+        }
+
+        function saveTextsAdmin() {
+            appTexts = { heroTitle: document.getElementById('adminHeroTitle').value.trim(), heroDesc: document.getElementById('adminHeroDesc').value.trim(), sliderTitle: document.getElementById('adminSliderTitle').value.trim(), menuTitle: document.getElementById('adminMenuTitle').value.trim(), mapTitle: document.getElementById('adminMapTitle').value.trim(), mapIframeUrl: document.getElementById('adminMapUrl').value.trim(), promoDigitalBadge: document.getElementById('adminPromoDigitalBadge').value.trim(), promoDigitalTitle: document.getElementById('adminPromoDigitalTitle').value.trim(), promoDigitalSub: document.getElementById('adminPromoDigitalSub').value.trim(), promoDigitalCta: document.getElementById('adminPromoDigitalCta').value.trim(), footerAbout: document.getElementById('adminFooterAbout').value.trim(), footerCopy: document.getElementById('adminFooterCopy').value.trim() };
+            localStorage.setItem('perfumes_texts', JSON.stringify(appTexts)); syncCloud(); applyGlobalConfig();
+        }
+
+        function renderBranchSelector() {
+            const select = document.getElementById('branchSelect'); select.innerHTML = '';
+            if (branchesData.length <= 1) { select.style.display = 'none'; } else { select.style.display = 'inline-block'; }
+            branchesData.forEach((b, i) => { select.innerHTML += `<option value="${i}">${b.name}</option>`; });
+        }
+        function updateBranchInfo() {
+            if(branchesData.length === 0) return;
+            const select = document.getElementById('branchSelect'); const selectedIndex = select.value || 0; const b = branchesData[selectedIndex] || branchesData[0]; const cleanPhone = b.phone.replace('52', '');
+            document.getElementById('mapBranchTitle').innerText = b.name; document.getElementById('mapBranchAddress').innerHTML = `<i class="fa-solid fa-location-dot"></i> ${b.address}`;
+            document.getElementById('mapBranchHours').innerHTML = `<i class="fa-solid fa-clock"></i> ${b.hours}`; document.getElementById('mapBranchPhone').innerHTML = `<i class="fa-brands fa-whatsapp"></i> WhatsApp: ${cleanPhone}`;
+            document.getElementById('branchDetails').innerHTML = `<p><i class="fa-solid fa-location-dot"></i> ${b.address}</p><p><i class="fa-solid fa-clock"></i> ${b.hours}</p><p><i class="fa-brands fa-whatsapp"></i> ${cleanPhone}</p>`;
+            document.getElementById('domWaCtaText').innerText = cleanPhone; document.getElementById('domWaCta').href = `https://wa.me/${b.phone}`;
+        }
+        function renderSlider() {
+            const track = document.getElementById('sliderTrack'); track.innerHTML = '';
+            let validSlides = sliderData.filter(item => item && item.url && item.url.trim() !== '');
+            if (validSlides.length === 0) validSlides = [{url: "https://images.unsplash.com/photo-1594035910387-fea47794261f?w=600", desc: ""}];
+            validSlides.forEach((item, i) => { track.innerHTML += `<div class="slide-item"><img src="${item.url}"><div class="slide-caption">${(item.desc !== undefined && item.desc !== '') ? item.desc : `Destacado ${i+1}`}</div></div>`; });
+        }
+        function renderCategoryTabs() {
+            const container = document.getElementById('categoryTabsContainer'); const select = document.getElementById('adminItemCategory');
+            container.innerHTML = ''; select.innerHTML = '';
+            for (const [key, name] of Object.entries(categoryMap)) {
+                const btn = document.createElement('button'); btn.className = `tab-btn ${key === currentActiveCategory ? 'active' : ''}`; btn.innerText = name; btn.onclick = () => filterCategory(key); container.appendChild(btn);
+                const option = document.createElement('option'); option.value = key; option.innerText = name; select.appendChild(option);
+            }
+        }
+        function filterCategory(category) {
+            currentActiveCategory = category;
+            const buttons = document.getElementById('categoryTabsContainer').children; for (let btn of buttons) { btn.classList.remove('active'); if (btn.innerText === categoryMap[category]) { btn.classList.add('active'); } }
+            const grid = document.getElementById('menuGrid'); grid.innerHTML = ''; const filtered = menuData.filter(item => item.category === category);
+            if (filtered.length === 0) { grid.innerHTML = `<p style="grid-column: 1/-1; text-align:center; color:#6B7280;">No hay productos en esta categoría.</p>`; return; }
+            filtered.forEach(item => {
+                let imgHtml = item.image ? `<img src="${item.image}" class="item-image" alt="${item.name}">` : '';
+                grid.innerHTML += `<div class="menu-item"><div>${imgHtml}<div class="item-header"><h4 class="item-title">${item.name}</h4><span class="item-price">$${item.price}</span></div><p class="item-desc">${item.desc}</p></div><button class="add-to-cart-btn" onclick="addToCart('${item.name}', ${item.price})"><i class="fa-solid fa-plus"></i> Agregar</button></div>`;
+            });
+        }
+        function renderPromoUI() { document.getElementById('domPromoTag').innerHTML = `<i class="fa-solid fa-star"></i> ${promoData.tag}`; document.getElementById('domPromoTitle').innerText = promoData.title; document.getElementById('domPromoPrice').innerText = promoData.price; document.getElementById('domPromoDesc').innerText = promoData.desc; }
+        
+        function renderAdminLists() {
+            const menuList = document.getElementById('adminItemsList');
+            menuList.innerHTML = `<div style="padding: 10px; border-bottom: 1px solid #E5E7EB; display: flex; justify-content: space-between; align-items: center; background: #F9FAFB;"><label style="font-size: 13px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 8px;"><input type="checkbox" id="selectAllItems" onchange="toggleSelectAllItems(this)"> Seleccionar Todo</label><button class="admin-btn-delete" style="margin-top: 0; width: auto; padding: 6px 12px;" onclick="deleteSelectedItems()">Borrar Seleccionados</button></div>`;
+            menuData.forEach((item, index) => { menuList.innerHTML += `<div class="admin-list-item"><div style="display:flex; align-items:center; gap:8px;"><input type="checkbox" class="item-checkbox" value="${index}"><span><strong>[${categoryMap[item.category] || 'N/A'}]</strong> ${item.name} - $${item.price}</span></div><div class="admin-list-actions"><button class="admin-action-btn" style="color:var(--primary);" onclick="startEditItemAdmin(${index})"><i class="fa-solid fa-pencil"></i></button><button class="admin-action-btn" style="color:#EF4444;" onclick="deleteItemAdmin(${index})"><i class="fa-solid fa-trash"></i></button></div></div>`; });
+            const catList = document.getElementById('adminCategoriesList'); catList.innerHTML = '';
+            for (const [key, name] of Object.entries(categoryMap)) { catList.innerHTML += `<div class="admin-list-item"><span><strong>${key}:</strong> ${name}</span><button class="admin-action-btn" style="color:#EF4444;" onclick="deleteCategoryAdmin('${key}')"><i class="fa-solid fa-trash"></i></button></div></div>`; }
+            const branchList = document.getElementById('adminBranchesList'); branchList.innerHTML = '';
+            branchesData.forEach((branch, index) => { branchList.innerHTML += `<div class="admin-list-item"><span><strong>${branch.name}</strong></span><div class="admin-list-actions"><button class="admin-action-btn" style="color:var(--primary);" onclick="startEditBranchAdmin(${index})"><i class="fa-solid fa-pencil"></i></button><button class="admin-action-btn" style="color:#EF4444;" onclick="deleteBranchAdmin(${index})"><i class="fa-solid fa-trash"></i></button></div></div>`; });
+        }
+
+        function startEditBranchAdmin(index) { editingBranchIndex = index; const b = branchesData[index]; document.getElementById('adminBranchName').value = b.name; document.getElementById('adminBranchAddr').value = b.address; document.getElementById('adminBranchPhone').value = b.phone; document.getElementById('adminBranchHours').value = b.hours; document.getElementById('adminBranchFormTitle').innerText = "Editar Sucursal"; document.getElementById('adminBranchSubmitBtn').innerText = "Actualizar Sucursal"; document.getElementById('adminCancelBranchEditBtn').style.display = 'block'; }
+        function cancelEditBranchAdmin() { editingBranchIndex = null; document.getElementById('adminBranchName').value = ''; document.getElementById('adminBranchAddr').value = ''; document.getElementById('adminBranchPhone').value = ''; document.getElementById('adminBranchHours').value = ''; document.getElementById('adminBranchFormTitle').innerText = "Agregar Sucursal"; document.getElementById('adminBranchSubmitBtn').innerText = "Agregar Sucursal"; document.getElementById('adminCancelBranchEditBtn').style.display = 'none'; }
+        function toggleSelectAllItems(source) { const checkboxes = document.querySelectorAll('.item-checkbox'); checkboxes.forEach(cb => cb.checked = source.checked); }
+        function startEditItemAdmin(index) { editingItemIndex = index; const item = menuData[index]; document.getElementById('adminItemCategory').value = item.category; document.getElementById('adminItemPrice').value = item.price; document.getElementById('adminItemName').value = item.name; document.getElementById('adminItemDesc').value = item.desc; tempItemImage = item.image || ""; document.getElementById('adminItemImage').value = tempItemImage; if(tempItemImage) { document.getElementById('adminItemImagePreview').src = tempItemImage; document.getElementById('adminItemImagePreview').style.display = 'block'; } else { document.getElementById('adminItemImagePreview').style.display = 'none'; } document.getElementById('adminFormTitle').innerText = "Editar Perfume"; document.getElementById('adminSubmitBtn').innerText = "Actualizar Producto"; document.getElementById('adminCancelEditBtn').style.display = 'block'; }
+        function cancelEditAdmin() { editingItemIndex = null; document.getElementById('adminItemPrice').value = ''; document.getElementById('adminItemName').value = ''; document.getElementById('adminItemDesc').value = ''; tempItemImage = ""; document.getElementById('adminItemImagePreview').style.display = 'none'; document.getElementById('adminItemImage').value = ''; document.getElementById('adminFormTitle').innerText = "Agregar un Perfume"; document.getElementById('adminSubmitBtn').innerText = "Agregar Producto"; document.getElementById('adminCancelEditBtn').style.display = 'none'; }
+        function handleItemImageUrl(event) { const url = event.target.value.trim(); tempItemImage = url; const preview = document.getElementById('adminItemImagePreview'); if (url) { preview.src = tempItemImage; preview.style.display = 'block'; } else { preview.style.display = 'none'; } }
+
+        function toggleAddressFields(isDelivery) { const addressFields = document.getElementById('addressFields'); if (addressFields) { addressFields.style.display = isDelivery ? 'block' : 'none'; } }
+        function toggleCart() { document.getElementById('cartModal').classList.toggle('open'); document.getElementById('cartOverlay').classList.toggle('show'); }
+        function addToCart(name, price) { const i = cart.find(x => x.name === name); if (i) i.quantity++; else cart.push({ name, price, quantity: 1 }); updateCartUI(); }
+        function updateCartUI() { const body = document.getElementById('cartBody'); body.innerHTML = ''; let total = 0; let qty = 0; if (cart.length === 0) { body.innerHTML = '<div class="cart-empty-msg">Tu carrito está vacío</div>'; document.getElementById('cartCheckoutDetails').style.display = 'none'; } else { cart.forEach(item => { total += item.price * item.quantity; qty += item.quantity; body.innerHTML += `<div class="cart-item-row"><div><h5>${item.name} (x${item.quantity})</h5><span>$${item.price*item.quantity}</span></div></div>`; }); document.getElementById('cartCheckoutDetails').style.display = 'block'; } document.getElementById('cartCount').innerText = qty; document.getElementById('cartTotal').innerText = `$${total}`; }
+        function sendWhatsAppOrder() {
+            if(cart.length===0) return alert("Agrega productos a tu bolsa primero.");
+            const deliveryMethodRadio = document.querySelector('input[name="deliveryMethod"]:checked'); const deliveryMethod = deliveryMethodRadio ? deliveryMethodRadio.value : 'domicilio';
+            const clientName = document.getElementById('clientName').value.trim(); const clientPhone = document.getElementById('clientPhone').value.trim(); const clientAddress = document.getElementById('clientAddress') ? document.getElementById('clientAddress').value.trim() : '';
+            if(!clientName || !clientPhone) return alert("Por favor, ingresa tu nombre y teléfono.");
+            if(deliveryMethod === 'domicilio' && !clientAddress) return alert("Por favor, ingresa tu dirección completa para el envío.");
+            let t = `*NUEVO PEDIDO - OUD & ESENCIAS* 🛍️\n\n*Datos del Cliente:*\n👤 Nombre: ${clientName}\n📱 Teléfono: ${clientPhone}\n`;
+            if(deliveryMethod === 'domicilio') { t += `📦 Método: *Envío a Domicilio*\n📍 Dirección: ${clientAddress}\n\n`; } else { t += `🏪 Método: *Recoger en Sucursal*\n\n`; }
+            t += `*Detalle de Compra:*\n`; let total = 0; cart.forEach(i => { t += `▪️ ${i.quantity}x ${i.name} ($${i.price * i.quantity})\n`; total += (i.price * i.quantity); });
+            t += `\n*Total a Pagar:* $${total} MXN\n\n¡Quedo a la espera de la confirmación de mi pedido!`;
+            let destPhone = "526692240194"; if(branchesData.length > 0) { const select = document.getElementById('branchSelect'); const selectedIndex = select.value || 0; destPhone = branchesData[selectedIndex].phone; }
+            window.open(`https://wa.me/${destPhone}?text=${encodeURIComponent(t)}`);
+        }
+        function toggleChatWindow() { document.getElementById('chatbotWindow').classList.toggle('open'); }
+        function handleBotKeyPress(e) { if(e.key === 'Enter') sendToBot(); }
+        function sendToBot() { const input = document.getElementById('chatInputBox'); const msg = input.value.trim(); if(!msg) return; renderChatMsg(msg, 'user'); input.value = ''; setTimeout(() => { processIntelligentResponse(msg); }, 500); }
+        function renderChatMsg(text, sender) { const chatBox = document.getElementById('chatMsgBox'); chatBox.innerHTML += `<div class="chat-msg ${sender}">${text}</div>`; chatBox.scrollTop = chatBox.scrollHeight; }
+        function processIntelligentResponse(rawMsg) {
+            const msg = rawMsg.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); let response = "Hmm, no estoy completamente seguro. Puedes preguntarme por precios, qué perfumes tenemos, o pedirme directamente que agregue algo al carrito (Ej: 'Agrega Untold').";
+            let foundProduct = menuData.find(p => { const prodName = p.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); return msg.includes(prodName) || (prodName.length > 5 && msg.includes(prodName.substring(0, 6))); });
+            let isAddIntent = msg.includes('comprar') || msg.includes('agregar') || msg.includes('quiero') || msg.includes('dame') || msg.includes('pedido'); let isPriceIntent = msg.includes('precio') || msg.includes('cuesta') || msg.includes('valor');
+            let mainBranchAddr = branchesData.length > 0 ? branchesData[0].address : "Nuestra sucursal"; let mainBranchHours = branchesData.length > 0 ? branchesData[0].hours : "todos los días";
+            if (foundProduct && isAddIntent) { addToCart(foundProduct.name, foundProduct.price); response = `¡Excelente elección! He agregado 1x **${foundProduct.name}** a tu carrito. 🛍️ ¿Te ayudo con algo más o prefieres ir a pagar pulsando en el carrito de compras arriba?`; } 
+            else if (foundProduct && isPriceIntent) { response = `El perfume **${foundProduct.name}** tiene un precio de **$${foundProduct.price} MXN**. ¡Huele increíble! ¿Deseas que lo agregue a tu carrito? (Dime "agregar ${foundProduct.name}")`; }
+            else if (foundProduct) { response = `Ese es un gran perfume. **${foundProduct.name}** cuesta $${foundProduct.price}. ${foundProduct.desc}. ¿Quieres agregarlo a tu pedido?`; }
+            else if (msg.includes('hola') || msg.includes('buenas') || msg.includes('buenos dias')) { response = "¡Hola! 👋 Bienvenido a Oud & Esencias. Soy tu asistente virtual. ¿Buscas alguna recomendación, ver nuestro catálogo completo o armar un pedido?"; }
+            else if (msg.includes('catalogo') || msg.includes('perfumes') || msg.includes('opciones') || msg.includes('tienen')) { let names = menuData.map(p => p.name).join(', '); response = `Contamos con joyas árabes como: ${names}. ¿Buscas algún aroma cítrico, dulce o amaderado en especial?`; }
+            else if (msg.includes('ubicacion') || msg.includes('donde') || msg.includes('sucursal')) { response = `📍 Nuestra sucursal principal está en: ${mainBranchAddr}. ¡Date una vuelta o te lo enviamos!`; }
+            else if (msg.includes('horario') || msg.includes('abren') || msg.includes('cierran')) { response = `🕒 Nuestros horarios son: ${mainBranchHours}. ¡Te esperamos con gusto!`; }
+            else if (msg.includes('envio') || msg.includes('domicilio')) { response = "📦 ¡Claro! Hacemos envíos nacionales y entrega a domicilio local. Puedes seleccionar la opción 'Envío' al confirmar tu carrito."; }
+            else if (msg.includes('pagar') || msg.includes('finalizar') || msg.includes('carrito')) { response = "Para finalizar tu pedido, abre tu 'Bolsa/Carrito' en la parte superior y llena los datos de entrega. Te abriré el carrito para que lo veas."; setTimeout(() => { toggleCart(); }, 1000); }
+            renderChatMsg(response, 'bot');
+        }
+
+        function setupSliderDots() { const dotsContainer = document.getElementById('sliderDots'); dotsContainer.innerHTML = ''; const items = document.querySelectorAll('.slide-item'); if (items.length === 0) return; let maxSlides = items.length; if (window.innerWidth >= 768) { maxSlides = Math.max(1, items.length - 2); } for (let i = 0; i < maxSlides; i++) { dotsContainer.innerHTML += `<div class="slider-dot ${i === 0 ? 'active' : ''}" onclick="goToSlide(${i})"></div>`; } startSliderAnimation(); }
+        function updateSliderUI() { const track = document.getElementById('sliderTrack'); const items = document.querySelectorAll('.slide-item'); if (items.length === 0) return; const itemWidth = items[0].offsetWidth + 20; track.style.transform = `translateX(-${currentSlide * itemWidth}px)`; const dots = document.querySelectorAll('.slider-dot'); dots.forEach((dot, index) => { dot.classList.toggle('active', index === currentSlide); }); }
+        function moveSlider(d) { const items = document.querySelectorAll('.slide-item'); if (items.length === 0) return; let maxSlides = items.length - 1; if (window.innerWidth >= 768) { maxSlides = Math.max(0, items.length - 3); } currentSlide += d; if (currentSlide < 0) currentSlide = maxSlides; if (currentSlide > maxSlides) currentSlide = 0; updateSliderUI(); resetSliderAnimation(); }
+        function goToSlide(index) { currentSlide = index; updateSliderUI(); resetSliderAnimation(); }
+        function startSliderAnimation() { clearInterval(autoSlideTimer); autoSlideTimer = setInterval(() => { moveSlider(1); }, 3500); }
+        function resetSliderAnimation() { startSliderAnimation(); }
+        window.addEventListener('resize', () => { currentSlide = 0; setupSliderDots(); updateSliderUI(); });
+
+        async function uploadToImgbb(event) {
+            const file = event.target.files[0]; if (!file) return;
+            const statusText = document.getElementById('uploadStatus'); const urlInput = document.getElementById('generatedImageUrl'); const previewImg = document.getElementById('generatedImagePreview');
+            statusText.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Subiendo imagen a la nube...'; statusText.style.color = 'var(--primary)'; urlInput.value = ""; previewImg.style.display = "none";
+            const apiKey = 'a9970f51791bb86a7eaf71086058d21d'; const formData = new FormData(); formData.append("image", file);
+            try { const response = await fetch(`https://api.imgbb.com/1/upload?key=${apiKey}`, { method: 'POST', body: formData }); const data = await response.json(); if (data.success) { const imageUrl = data.data.url; urlInput.value = imageUrl; previewImg.src = imageUrl; previewImg.style.display = "inline-block"; statusText.innerHTML = '<i class="fa-solid fa-circle-check"></i> ¡Imagen generada con éxito!'; statusText.style.color = 'var(--success)'; } else { statusText.innerText = "Error al procesar la imagen."; statusText.style.color = '#EF4444'; } } catch (error) { statusText.innerText = "Error de conexión. Verifica tu internet."; statusText.style.color = '#EF4444'; console.error(error); }
+        }
+        function copyGeneratedUrl() { const urlInput = document.getElementById('generatedImageUrl'); if(!urlInput.value) return alert("Primero sube una imagen para generar la URL."); urlInput.select(); document.execCommand("copy"); alert("¡URL copiada! Ahora puedes pegarla en cualquier campo de 'Imagen' del panel."); }
+
+        initApp();
+    </script>
+</body></html>
